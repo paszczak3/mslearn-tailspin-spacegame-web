@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/paszczak3/test/_apis/build/status/paszczak3.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/paszczak3/test/_build/latest?definitionId=4&branchName=main)
 
 # Contributing
 
