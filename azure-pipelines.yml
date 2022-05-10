@@ -4,7 +4,9 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  - 'feature/test-scripts' # build all branches
+  branches:
+    include:
+      - 'feature/test-script' # build all branches
 
 pool:
   vmImage: 'ubuntu-latest'
