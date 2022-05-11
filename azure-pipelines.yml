@@ -10,21 +10,21 @@ trigger:
 
 
 stages:
-- stage: deploy
-  jobs:
-  - deployment: Test
-    displayName: test
-    pool:
-      vmImage: 'ubuntu-latest'
-    environment: 'dev'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - script: echo Helo, world!
-            displayName: 'Run a one line script'
+  - stage: deploy
+    jobs:
+      - deployment: Test
+        displayName: test
+        pool:
+          vmImage: 'ubuntu-latest'
+        environment: 'dev'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: echo Helo, world!
+                  displayName: 'Run a one line script'
 
-          - script: |
-              echo test1
-              echo test2
-            displayName: 'Run multi line script'
+                - script: |
+                    echo test1
+                    echo test2
+                  displayName: 'Run multi line script'
