@@ -9,6 +9,7 @@ trigger:
       - 'feature/test-script' # build all branches
 
 
+stages:
 - stage: deploy
   jobs:
   - deployment: Test
