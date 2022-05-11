@@ -54,14 +54,6 @@ stages:
         arguments: '--no-restore --configuration $(buildConfiguration)'
         projects: '**/*.csproj'
 
-    - task: NuGetCommand@2
-      displayName: 'Publish NuGet package'
-      inputs:
-        command: push
-        feedPublish: '$(System.TeamProject)/test'
-        allowPackageConflicts: true
-        condition: succeeded()
-
     - task: DotNetCoreCLI@2
       displayName: 'Pack the project - $(buildConfiguration)'
       inputs:
@@ -72,6 +64,14 @@ stages:
         majorVersion: '1'
         minorVersion: '0'
         patchVersion: '0'
+
+    - task: NuGetCommand@2
+      displayName: 'Publish NuGet package'
+      inputs:
+        command: push
+        feedPublish: '$(System.TeamProject)/test'
+        allowPackageConflicts: true
+        condition: succeeded()
 
     - task: DotNetCoreCLI@2
       displayName: 'Publish the project - $(buildConfiguration)'
