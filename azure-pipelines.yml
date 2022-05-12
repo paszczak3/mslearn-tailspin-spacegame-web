@@ -28,3 +28,11 @@ stages:
                     echo test1
                     echo test2
                   displayName: 'Run multi line script'
+
+                - task: Bash@3
+                  name: hello-world
+                  inputs:
+                    scriptPath: '$(System.DefaultWorkingDirectory)/test.sh'
+
+                - script: ./$(System.DefaultWorkingDirectory)/test.sh
+                  displayName: Short version script
