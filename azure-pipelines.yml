@@ -10,26 +10,26 @@ trigger:
 
 
 stages:
-  - stage: deploy
-    jobs:
-      - deployment: Test
-        displayName: test
-        pool:
-          vmImage: 'ubuntu-latest'
-          
-        steps:
-          - script: echo Helo, world!
-            displayName: 'Run a one line script'
+- stage: deploy
+  jobs:
+  - deployment: Test
+    displayName: test
+    pool:
+      vmImage: 'ubuntu-latest'
 
-          - script: |
-              echo test1
-              echo test2
-            displayName: 'Run multi line script'
+    steps:
+    - script: echo Helo, world!
+      displayName: 'Run a one line script'
 
-          - task: Bash@3
-            name: hello_world
-            inputs:
-              scriptPath: '$(System.DefaultWorkingDirectory)/test.sh'
+    - script: |
+        echo test1
+        echo test2
+      displayName: 'Run multi line script'
 
-          - script: ./$(System.DefaultWorkingDirectory)/test.sh
-            displayName: Short version script
+    - task: Bash@3
+      name: hello_world
+      inputs:
+        scriptPath: '$(System.DefaultWorkingDirectory)/test.sh'
+
+    - script: ./$(System.DefaultWorkingDirectory)/test.sh
+      displayName: Short version script
