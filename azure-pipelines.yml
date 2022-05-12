@@ -18,6 +18,7 @@ stages:
       vmImage: 'ubuntu-latest'
 
     steps:
+      
     - script: echo Helo, world!
       displayName: 'Run a one line script'
 
@@ -30,7 +31,10 @@ stages:
     - task: Bash@3
       name: hello_world
       inputs:
+        targetType: 'inline'
         scriptPath: 'test.sh'
+        failOnStderr: true
 
-    - script: ./test.sh
+    - script: |
+        ./test.sh
       displayName: Short version script
