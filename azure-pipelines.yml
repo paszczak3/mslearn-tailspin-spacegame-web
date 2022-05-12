@@ -8,11 +8,11 @@ trigger:
     include:
       - 'feature/test-script' # build all branches
 
-
 stages:
 - stage: deploy
+  displayName: 'Test bash scripts'
   jobs:
-  - deployment: Test
+  - job: 'Test'
     displayName: test
     pool:
       vmImage: 'ubuntu-latest'
