@@ -21,12 +21,19 @@ stages:
 
     - script: echo Helo, world!
       displayName: 'Run a one line script'
-
+      
     - script: |
         echo test1
         echo test2
         ls
       displayName: 'Run multi line script'
+
+  - job: 'Job2'
+    displayName: test2
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
 
     - task: Bash@3
       name: hello_world
